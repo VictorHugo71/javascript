@@ -30,10 +30,6 @@
             font-size: 1.3em;
             text-align: right;
         }
-
-        div {
-            background: url();
-        }
     </style>
     <title>Aprendendo Js</title>
 </head>
@@ -42,10 +38,11 @@
     <p>Já me livrei da maldição, <br> só aprender agora.</p>
 
     <script>
-       window.alert("Olá, mundo!" +  "\n Me livrando da maldição") //Criando um alerta
-        window.confirm("Está gostando do Js?") //Cria uma janela com botão de confirmação e cancelamento
-        window.prompt("Qual seu nome?") //Abre uma caixa que solicita o nome do usuário
-        console.log(nome)
+        var n1 = Number(window.prompt("Digite um número:")) //prompt transforma qualquer dado que ele receba em string
+        var n2 = Number(window.prompt("Digite outro número:")) //string
+        var soma = n1 + n2
+        window.alert(`O resultado da soma de ${n1} + ${n2} é de: ${soma}`)
+        //+ para adição e para concatenação
     </script>
 </body>
 </html>

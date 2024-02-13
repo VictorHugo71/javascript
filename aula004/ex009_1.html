@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pais</title>
+</head>
+<body>
+    <h1>Olá, Bem Vindo!!</h1>
+    <p>
+        Digite seu país: <input type="text" name="pais" id="ipais">
+    </p>
+    <input type="button" value="Enviar" onclick="pais()">
+    <div id="res"></div>
+    <script>
+        function pais() {    
+            var txtpais = document.querySelector('input#ipais')
+            var pais = txtpais.value
+            var res = document.getElementById('res')
+            res.innerHTML = `<p>Seu país é <strong>${pais}</strong></p>`
+
+            if (pais == "Brasil" || "BRASIL" || "brasil" || "BR" || "BRA") {
+                res.innerHTML += "Você é Brasileiro"
+            } else {
+                res.innerHTML += "Você é Gringo"
+            }
+        }
+    </script>
+</body>
+</html>

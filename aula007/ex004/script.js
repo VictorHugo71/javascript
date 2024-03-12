@@ -1,51 +1,24 @@
-function verificar() {
-    var data = new Date()
-    var ano = data.getFullYear()
-    var fano = document.getElementById('txtano')
-    var res = document.querySelector('div#res')
-
-    if (fano.value.length == 0 || Number(fano.value > ano)) {
-        window.alert('Verifique os Dados inseridos e tente novamente')
+function tabuada() {
+    let num = document.getElementById('txtn')
+    let tab = document.getElementById('seltab')
+    if (num.value.length == 0) { //Verificando se há valor digitado no campo de entrada através do comprimento do digíto
+        window.alert('Digite um valor válido')
     } else {
-        var fsex = document.getElementsByName('radsex')
-        var idade = ano - Number(fano.value)
-        var genero = ''
-        var img = document.createElement('img')
-        img.setAttribute('id' , 'foto')
-
-        if (fsex[0].checked) {
-            genero = 'Homem'
-            if (idade >= 0 && idade <= 10) {
-                //Criança
-                img.setAttribute('src', 'garoto.png')
-            } else if (idade < 21) {
-                //Jovem
-                img.setAttribute('src', 'jovemh.png')
-            } else if (idade < 50) {
-                //Adulto
-                img.setAttribute('src', 'homem.png')
-            } else {
-                //Velho
-                img.setAttribute('src', 'velho.png')
-            }
-        } else if (fsex[1].checked) {
-            genero = 'Mulher'
-            if (idade >= 0 && idade <= 10) {
-                //Criança
-                img.setAttribute('src', 'garota.png')
-            } else if (idade < 21) {
-                //Jovem
-                img.setAttribute('src', 'jovemm.png')
-            } else if (idade < 50) {
-                //Adulto
-                img.setAttribute('src', 'mulher.png')
-            } else {
-                //Velho
-                img.setAttribute('src', 'velha.png')
-            }
+        let n = Number(num.value) //Conversão da variável "num" de String para Number(número)
+        let c = 1
+        tab.innerHTML = "" //Limpando os valores da "tabuada" antes de escrever a nova
+        /*while(c <= 10) {
+            let item = document.createElement('option')
+            item.text = `${n} x ${c} = ${n*c}`
+            item.value = `tab${c}`
+            tab.appendChild(item)
+            c++
+        }*/
+        for(let c = 1; c <= 10; c++) {//Iniciando o laço de repetição da tabuada até o máximo de 10
+            let item = document.createElement('option') //Criando o elemento option no select do HTML 
+            item.text = `${n} x ${c} = ${n*c}`
+            item.value = `tab${c}` //Atribuindo o value ao option select
+            tab.appendChild(item) //Atribuindo os valores da tabuada em cada option do select
         }
-        res.style.textAlign = 'center'
-        res.innerHTML = `Detectamos ${genero} com ${idade} anos`
-        res.appendChild(img)
     }
 }
